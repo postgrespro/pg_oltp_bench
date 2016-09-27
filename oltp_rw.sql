@@ -22,6 +22,7 @@
 \set u2 random(1, :table_size)
 \set u3 random(1, :table_size)
 \set u4 random(1, :table_size)
+BEGIN;
 SELECT c FROM sbtest WHERE id = :id1;
 SELECT c FROM sbtest WHERE id = :id2;
 SELECT c FROM sbtest WHERE id = :id3;
@@ -40,3 +41,4 @@ UPDATE sbtest SET k = k + 1 WHERE id = :u1;
 UPDATE sbtest SET c = sb_rand_str('###########-###########-###########-###########-###########-###########-###########-###########-###########-###########') WHERE id = :u2;
 DELETE FROM sbtest WHERE id = :u3;
 INSERT INTO sbtest (id, k, c, pad) VALUES (:u3, :u4, sb_rand_str('###########-###########-###########-###########-###########-###########-###########-###########-###########-###########'), sb_rand_str('###########-###########-###########-###########-###########'));
+COMMIT;
