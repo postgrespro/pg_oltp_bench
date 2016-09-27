@@ -40,5 +40,5 @@ SELECT DISTINCT c FROM sbtest WHERE id BETWEEN :r4l AND :r4u;
 UPDATE sbtest SET k = k + 1 WHERE id = :u1;
 UPDATE sbtest SET c = sb_rand_str('###########-###########-###########-###########-###########-###########-###########-###########-###########-###########') WHERE id = :u2;
 DELETE FROM sbtest WHERE id = :u3;
-INSERT INTO sbtest (id, k, c, pad) VALUES (:u3, :u4, sb_rand_str('###########-###########-###########-###########-###########-###########-###########-###########-###########-###########'), sb_rand_str('###########-###########-###########-###########-###########'));
+INSERT INTO sbtest (id, k, c, pad) VALUES (:u3, :u4, sb_rand_str('###########-###########-###########-###########-###########-###########-###########-###########-###########-###########'), sb_rand_str('###########-###########-###########-###########-###########')) ON CONFLICT DO NOTHING;
 COMMIT;
