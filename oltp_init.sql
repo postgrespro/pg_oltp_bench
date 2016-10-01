@@ -8,10 +8,10 @@ CREATE TABLE sbtest(
 
 INSERT INTO sbtest (k, c, pad)
 SELECT
-	(random() * 1000000)::int + 1 AS k,
+	(random() * 10000000)::int + 1 AS k,
 	sb_rand_str('###########-###########-###########-###########-###########-###########-###########-###########-###########-###########') AS c,
 	sb_rand_str('###########-###########-###########-###########-###########') AS pad
 FROM
-	generate_series(1, 1000000) j;
+	generate_series(1, 10000000) j;
 
 CREATE INDEX sbtest_k_idx ON sbtest(k);

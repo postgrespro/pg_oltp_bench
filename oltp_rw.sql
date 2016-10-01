@@ -1,4 +1,4 @@
-\set table_size 100000 * :scale
+\set table_size 10000000
 \set range_size 100
 \set id1 random(1, :table_size)
 \set id2 random(1, :table_size)
